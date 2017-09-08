@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css?family=Gabriela|Roboto:400,700&subset=cyrillic');
+
+// font-family: 'Gabriela', serif;
+// font-family: 'Roboto', sans-serif;
+
+
+// Wrapper todo и тень
+.todo__wrapper{
+  display: block;
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  height: 100%;
+  margin: 50px auto;  
+  border: 1px solid #eee; 
+  border-radius: 5px;
+    &::after{
+    position: absolute;
+    content:"";
+    height: 10px;
+    width: 85%;
+    left: 50%;
+    bottom:0;
+    transform: translateX(-50%);
+    border-radius:50%;
+    box-shadow: 0 0 14px rgba(0,0,0,0.5);    
+    z-index:0;
+    }
+}
+.todo__inner{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 2%;
+  box-sizing: border-box;
+  z-index: 1;
+  background-color: #fff;
+}
+// 
+// Заголовки формы
+.todo__title{
+  display: block;
+  position: relative;  
+  padding-left: 35px;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #3c3c3c;
+  cursor: pointer;
+}
+// Картинки в заголовках
+.todo__title_new{
+  margin: 20px 0 40px 0;
+  &::before{
+    position: absolute;
+    content:'';
+    display: block;    
+    background-image: url("../img/1.png");
+    width: 24px;
+    height: 35px;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+  }
+}
+
+.todo__title_current{
+  margin: 40px 0 20px 0;
+  &::before{
+    position: absolute;
+    content:'';
+    display: block;    
+    background-image: url("../img/2.png");
+    width: 24px;
+    height: 35px;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+  }
+}
+
+.todo__title_done{
+  margin: 40px 0 20px 0;
+  &::before{
+    position: absolute;
+    content:'';
+    display: block;    
+    background-image: url("../img/3.png");
+    width: 24px;
+    height: 35px;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+  }
+}
+// 
+// Новая задача
+#wrap{
+  display:none;
+}
+
+.new__wrapper{
+  overflow: hidden;
+}
+
+input#newTask{
+  display: block;
+  float: left;
+  width: 502px;
+  margin-right: 2%;
+  padding: 10px;
+  font-size: 15px; 
+  border: 1px solid #c6c6c6;
+  border-radius:5px;
+  color: #888;
+  font-family: 'Gabriela', serif;  
+  background-color: #fff;
+  outline:none;
+}
+
+input[type="text"]::placeholder{
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  display: inline-block;  
+  height:40px;
+  width:40px;
+  padding:10px;
+  outline: none;
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  color: #888;
+  font-size: 15px;     
+  font-family: Lato, sans-serif;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: #d4edda;
+  background-image: url("../img/circle.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  
+}
+// 
+// Поля добавленных задач
+li > input[type="text"]{
+  display: block;
+  float: left;
+  padding: 12px 10px;
+  width: 398px;
+  margin-right: 2%;  
+  border: 1px solid #c6c6c6;
+  border-radius:5px;
+  color: #888;
+  font-size: 15px; 
+  font-family: 'Gabriela', serif;  
+  background-color: #fff;
+  outline:none;
+}
+
+li > label {
+  display: block;
+  float: left;
+  width: 398px;
+  margin-right: 2%;
+  padding: 12px 10px;
+  border: 1px solid #c6c6c6;
+  border-radius:5px;
+  font-size: 15px; 
+  color: #888;
+  font-family: 'Gabriela', serif;  
+  background-color: #cce5ff;
+  outline:none;
+}
+#completed-tasks label{
+  background-color: #e7e8ea;
+  text-decoration: line-through;
+  color:#9ACD32 ;
+}
+
+#completed-tasks input[type="text"]{
+  background-color: #e7e8ea;
+  text-decoration: line-through;
+  color:#9ACD32 ;
+}
+
+li {  
+  overflow: hidden;
+  padding: 20px 0 20px 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+li *{
+  float: left;
+}
+#incomplete-tasks label{
+  color: red;  
+}
+
+ul li input[type=text] {
+  display:none;
+}
+
+ul li.editMode input[type=text] {
+  display:block;
+}
+
+ul li.editMode label {
+  display:none;
+}
+// 
+// Кнопки
+.edit{
+  margin-right: 2%;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/edit.png");
+  background-position: center center;
+  background-repeat: no-repeat; 
+  background-color: transparent;  
+}
+
+.delete{
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/off.png");
+  background-position: center center;
+  background-repeat: no-repeat;  
+  background-color: transparent;
+}
+
+.check{
+  display: block;
+  margin-right: 2%;
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/check.png");
+  background-position: center center;
+  background-repeat: no-repeat;  
+  background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @media (max-width: 1024px){
+//   .container{
+//     width: 80%;
+//   }
+// }
+// @media (max-width: 640px){
+//   .container{
+//     width:80%;
+//     margin: 0 auto;
+//     margin-top: 10%;
+//   }
+//   li > label {
+//   font-size: 22px;
+//   width: 100px;
+//   }
+//   li >  input[type="text"] {
+//     width: 150px;
+//   }
+//    input#newTask{
+//     width: 225px;
+//   }
+// }
+
+// @media (max-width: 480px){
+//   input#newTask{
+//     width: 125px;
+//   }
+// }
